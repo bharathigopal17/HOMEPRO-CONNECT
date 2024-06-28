@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMEPRO CONNECT</title>
+    <!-- <link rel="stylesheet" href="C:\Users\gokul\Downloads\Credex pro\frontend\static\login.css"> -->
+    <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Additional CSS for hiding the OTP input and Verify button initially */
+        #otpInput {
+            display: none;
+        }
+        #verifyButton {
+            display: none;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        section .box .form .inputBox #verifyButton {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* Adjust the margin-top as needed */
+        }
+
+        section .box .form .inputBox #verifyButton input {
+            display: block;
+            margin: 0 auto; /* Centers the button horizontally */
+            background-color: #4CAF50; /* Green background */
+            border: none;
+            color: white;
+            padding: 8px 20px; /* Adjust the padding as needed */
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px; /* Adjust the font size as needed */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 5px; /* Adjust the border radius as needed */
+        }
+        section .box .form .inputBox #verifyButton input:hover {
+            background-color: #45a049; /* Darker green when hovering */
+        }
+
+        #resendOTPButton {
+            display: none;
+        }
+        section .box .form .inputBox #resendButton {
+        display: flex;
+        align-items: center;
+        background-color: #4CAF50; /* Green background */
+        border: none;
+        color: white;
+        padding: 6px 16px; /* Adjust the padding as needed */
+        text-align: center;
+        text-decoration: none;
+        font-size: 12px; /* Adjust the font size as needed */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 5px; /* Adjust the border radius as needed */
+        margin-top: 10px; /* Adjust the margin-top as needed */
+        margin-left: 10px; /* Adjust the margin-left as needed */
+    }
+    section .box .form .inputBox #resendButton:disabled {
+        background-color: #A9A9A9; /* Grey background when disabled */
+        cursor: not-allowed; /* Show disabled cursor */
+    }
+    section .box .form .inputBox #resendButton:hover:enabled {
+        background-color: #45a049; /* Darker green when enabled and hovering */
+    } 
+    @media (max-width: 768px) {
+  /* Styles for smaller screens (e.g., smartphones) */
+         }
+        @media (min-width: 769px) and (max-width: 1024px) {
+  /* Styles for medium-sized screens (e.g., tablets) */
+          }
+                body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(-30deg,
+                    #03a9f4 0%,
+                    #3a78b7 50%,
+                    #262626 50%,
+                    #607d8b 100%);
+            filter: hue-rotate(120deg);
+            animation: animate 10s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+        section .box {
+            position: relative;
+            padding: 40px;
+            width: 360px;
+            height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+        }
+        section .box::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 5px;
+            pointer-events: none;
+            background: linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0.3) 0%,
+                    rgba(255, 255, 255, 0.1) 15%,
+                    transparent 50%,
+                    transparent 85%,
+                    rgba(255, 255, 255, 0.3) 100%);
+        }
+
+        section .box .form {
+            position: relative;
+            width: 100%;
+        }
+        section .box .form .form_logo {
+            text-align: center;
+        }
+        section .box .form .form_logo img {
+            height: 120px;
+        }
+        section .box .form h2 {
+            color: #fff;
+            font-weight: 600px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        section .box .form .inputBox {
+            position: relative;
+            width: 90%;
+            margin-bottom: 20px;
+    
+        }
+        section .box .form .inputBox input {
+            padding: 8px 10px 8px 30px;
+            width: 100%;
+            outline: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            /* padding: 8px 10px;
+            padding-left: 20px;
+            border-radius: 6px; */
+            color: #fff;
+            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.2);
+        }
+        section .box .form .inputBox i {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            color: #0f0e0e; /* Adjust the color as needed */
+        }
+        section .box .form .inputBox input::placeholder {
+            color: #fff;
+        }
+        section .box .form .inputBox input[type="submit"] {
+            background: #fff;
+            color: #111;
+            max-width: 100px;
+            padding: 8px 10px;
+            box-shadow: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+        section .box .form .inputBox input[type="submit"]:hover {
+            transform: scale(1.05);
+
+        }
+        section .box .form .remember {
+            position: relative;
+            display: inline-block;
+            color: #fff;
+            font-weight: 300;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        section .box .form p {
+            color: #fff;
+            font-weight: 300;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+
+        section .box .form a {
+            color: #fff;
+        }
+        section .box .form .inputBox button {
+        display: block;
+        margin: 0 auto; /* Centers the button horizontally */
+        background-color: #4CAF50; /* Green background */
+        border: none;
+        color: white;
+        padding: 8px 20px; /* Adjust the padding as needed */
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px; /* Adjust the font size as needed */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 5px; /* Adjust the border radius as needed */
+    }
+    section .box .form .inputBox button:hover {
+        background-color: #45a049; /* Darker green when hovering */
+    }
+    .disabled-button {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+      }
+    #requestOTP:not(.disabled-button) {
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            cursor: pointer;
+        }
+
+    #requestOTP:not(.disabled-button):hover {
+            background-color: #45a049; /* Darker green when hovering */
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="box">
+            <div class="form">
+                <div class="form_logo"><img src="Images\Logo\ApniDukan.png"></div>
+                <h2>Login</h2>
+                <form>
+                    <div class="inputBox">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" id="email" placeholder=" Email ID" required
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                        <!-- <img src=""> -->
+                    </div>
+                    <div class="inputBox" id="otpInput">
+                        <i class="fas fa-lock"></i>
+                        <input type="text" placeholder="Enter OTP" id="otp" maxlength="6">
+                    </div>
+                    <div class="inputBox">
+                        <button type="button" id="requestOTP" disabled>Request OTP</button>
+                    </div>
+                    <div class="inputBox" id="verifyButton">
+                        <input class="btn" type="button" value="Verify" onclick="verifyOTP(); blinkEffect()">
+                    </div>
+                    
+                    <div class="inputBox" id="resendOTPButton">
+                        <button type="button" id="resendButton" onclick="resendOTP()">Resend OTP</button>
+                    </div>
+                    <span id="countdown" class="countdown-text"></span>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        function blinkEffect() {
+        var btn = document.querySelector('.btn');
+        btn.style.animation = 'blink 1s infinite';
+             }
+        let countdown;
+        let isResendMode = false;
+        let serverOTP; // Variable to store the server-generated OTP
+        // Function to send OTP via server
+        function sendOTPToServer(email) {
+            // Replace 'http://127.0.0.1:5000/sendOTP' with the actual server URL
+            fetch('https://homepro-connect.onrender.com/sendOTP', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ "email": [email] }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Check if the OTP for the email exists in the response
+                    if (data.otps && data.otps[email]) {
+                        // Store the server-generated OTP
+                        serverOTP = data.otps[email];
+                        console.log(`OTP sent to ${email}`);
+                        // Enable the Verify button
+                        document.getElementById("verifyButton").style.display = "block";
+                    } else {
+                        alert("Server did not provide OTP. Please try again.");
+                    }
+                } else {
+                    alert("Error sending OTP email. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error(`Error sending OTP email: ${error}`);
+                alert("Error sending OTP email. Please try again.");
+            });
+        }
+
+        // Function to handle OTP verification
+        function verifyOTP() {
+        const enteredOTP = document.getElementById("otp").value.trim(); // Remove whitespace
+
+        if (enteredOTP === serverOTP) {
+            // Save the email in local storage
+            const email = document.getElementById("email").value;
+            localStorage.setItem("studentEmail", email);
+
+            // Check if the user exists in the database
+            fetch('https://homepro-backend.onrender.com/checkUserDetails', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.exists) {
+                    window.location.href = 'home.html';
+                } else {
+                    window.location.href = 'account.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error checking user details:', error);
+                // Handle the error as needed
+            });
+        } else {
+            alert("Invalid OTP. Please try again.");
+        }
+    }
+        // JavaScript for OTP input change event
+        document.getElementById("otp").addEventListener("input", function () {
+            const otpInput = document.getElementById("otp");
+            const verifyButton = document.getElementById("verifyButton");
+
+            // Check if the OTP input has exactly 6 digits
+            if (/^\d{6}$/.test(otpInput.value)) {
+                verifyButton.style.opacity = 1;  // Enable the button
+                verifyButton.style.pointerEvents = "auto";  // Enable button clicks
+            } else {
+                verifyButton.style.opacity = 0.5;  // Disable the button
+                verifyButton.style.pointerEvents = "none";  // Disable button clicks
+            }
+                });
+                        
+        
+                document.addEventListener("DOMContentLoaded", function() {
+                const emailInput = document.getElementById("email");
+                const requestOTPButton = document.getElementById("requestOTP");
+                const resendButton = document.getElementById("resendButton");
+
+                // Regular expression for validating the email format
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@kongu\.edu$/;
+
+                // Check if the email input is valid
+                if (emailRegex.test(emailInput.value.trim())) {
+                    requestOTPButton.disabled = false;
+                    requestOTPButton.classList.remove('disabled-button');
+                    resendButton.disabled = false;
+                    resendButton.classList.remove('disabled-button');
+                } else {
+                    requestOTPButton.disabled = true;
+                    requestOTPButton.classList.add('disabled-button');
+                    resendButton.disabled = true;
+                    resendButton.classList.add('disabled-button');
+                }
+            });
+
+            document.getElementById("email").addEventListener("input", function () {
+                const emailInput = document.getElementById("email");
+                const requestOTPButton = document.getElementById("requestOTP");
+                const resendButton = document.getElementById("resendButton");
+
+                // Regular expression for validating the email format
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@kongu\.edu$/;
+
+                // Check if the email input is valid
+                if (emailRegex.test(emailInput.value.trim())) {
+                    requestOTPButton.disabled = false;
+                    requestOTPButton.classList.remove('disabled-button');
+                    resendButton.disabled = false;
+                    resendButton.classList.remove('disabled-button');
+                } else {
+                    requestOTPButton.disabled = true;
+                    requestOTPButton.classList.add('disabled-button');
+                    resendButton.disabled = true;
+                    resendButton.classList.add('disabled-button');
+                }
+            });
+
+      
+        // JavaScript for OTP request button click event
+        document.getElementById("requestOTP").addEventListener("click", function () {
+            const emailInput = document.getElementById("email");
+            const otpInput = document.getElementById("otp");
+            const requestOTPButton = document.getElementById("requestOTP");
+
+            // Send OTP via the server
+            sendOTPToServer(emailInput.value);
+
+            // Show the OTP input and Verify button
+            document.getElementById("otpInput").style.display = "block";
+            document.getElementById("verifyButton").style.display = "block";
+
+            // Make the email input readonly to prevent editing
+            emailInput.readOnly = true;
+
+            // Hide the Request OTP button
+            requestOTPButton.style.display = "none";
+            document.getElementById("resendOTPButton").style.display = "block";
+            isResendMode = true;
+
+            // Display and enable Resend OTP button after 60 seconds
+            const resendButton = document.getElementById("resendButton");
+            const countdownSpan = document.getElementById("countdown");
+            resendButton.disabled = true;
+
+            // Countdown timer for 60 seconds
+            let secondsRemaining = 60;
+                countdownSpan.textContent = `Resend OTP in ${secondsRemaining} seconds`;
+
+                countdown = setInterval(function () {
+                    secondsRemaining--;
+                    if (secondsRemaining <= 0) {
+                        clearInterval(countdown);
+                        resendButton.disabled = false;
+                        countdownSpan.textContent = "";
+                    } else {
+                        countdownSpan.textContent = `Resend OTP in ${secondsRemaining} seconds`;
+                    }
+                }, 1000);
+                });
+
+            // JavaScript for Resend OTP button click event
+        function resendOTP() {
+            const emailInput = document.getElementById("email");
+
+            // Send OTP via the server
+            sendOTPToServer(emailInput.value);
+
+            // Reset OTP input
+            document.getElementById("otp").value = "";
+
+            // Enable the Verify button
+            document.getElementById("verifyButton").style.opacity = 0.5;
+            document.getElementById("verifyButton").style.pointerEvents = "none";
+
+            // Update the button text and disable the button
+            const resendButton = document.getElementById("resendButton");
+            const countdownSpan = document.getElementById("countdown");
+            resendButton.textContent = "OTP Resent";
+            resendButton.disabled = true;
+        }
+    </script>
+    <script>
+        window.addEventListener('pageshow', function (event) {
+            var historyTraversal = event.persisted || (typeof window.performance != 'undefined' && window.performance.navigation.type === 2);
+            if (historyTraversal) {
+                // Reload the page
+                window.location.reload();
+            }
+        });
+    </script>
+</body>
+</html>

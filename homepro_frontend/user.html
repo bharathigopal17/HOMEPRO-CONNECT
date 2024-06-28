@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <meta charset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./static/style.css">
+    <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/60fedd8558.js" crossorigin="anonymous"></script>
+    
+    <script src="https://kit.fontawesome.com/60fedd8558.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <title>Homepro Connect</title>
+    <link rel="stylesheet" href="./static/home.css">
+    <style>
+body {
+    /* background-image: url('https://png.pngtree.com/background/20210710/original/pngtree-peaceful-spring-festival-going-home-for-the-new-year-welcome-home-picture-image_972387.jpg'); Replace with your background image path */
+    background-size: cover;
+    background-color:lightskyblue;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+img#profilePictureElement {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 10px auto;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+    font-size: 18px;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+input[type="submit"]:hover {
+    background-color: #e35d4f;
+}
+
+input:read-only {
+    background-color: #f9f9f9;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #4d90fe;
+}
+
+option {
+    font-size: 16px;
+}
+
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon input[type="text"] {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.inputWithIcon .updateOption {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    color: #4CAF50;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.inputWithIcon .updateOption:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: #2980b9;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./home.html">
+                <img src="Images\Logo\ApniDukan.png" alt="logo" width="45" height="35" class="d-inline-block align-text-top mr-2 navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-capitalize">
+                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0 text-capitalize">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                        </li>
+                        <li class="nav-item text-capitalize">
+                            <a class="nav-link" href="./about.html">About us</a>
+                        </li>
+                       
+                        <li class="nav-item text-capitalize">
+                            <a class="nav-link" href="./contactus.html">Contact us</a>
+                        </li>
+                       
+                        <li class="nav-item text-capitalize">
+                            <a class="nav-link" href="faq.html">FAQ</a>
+                        </li> 
+                       
+                    </ul>
+                    
+            </div>
+        </div>
+    </nav>
+    <h2>User Account Details</h2>
+    <img id="profilePictureElement" src="" alt="Profile Picture">
+    <form id="accountForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required readonly><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select the gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="not_specified">Not to Say</option>
+        </select><br><br>
+
+        <label for="mobile">Mobile Number:</label>
+        <div class="inputWithIcon">
+            <input type="text" id="mobile" name="mobile" required>
+            <span class="updateOption" onclick="updateMobile()">Update</span>
+        </div>
+        <br><br>
+
+        <label for="profilePicture">Profile Picture:</label>
+        <input type="file" id="profilePicture" name="profilePicture"><br><br>
+
+        <input type="submit" value="Save Details">
+    </form>
+    <footer class="bg-dark text-white pt-5 pb-4" style="font-size: 18px;">
+        <div class="container text-md-left">
+          <div class="row text-md-left">
+            <div class="col mt-3" style="color:#808080;">
+              <h5 class="text-uppercase mb-4 font-weight-bold md-sz">Get to know us</h5>
+              <p>
+                <a href="./home.html" class="text-white" style="text-decoration: none;">HOME</a>
+              </p>
+              <p>
+                <a href="./about.html" class="text-white" style="text-decoration: none;">About us</a>
+              </p>
+              <p>
+                  <a href="./contactus.html" class="text-white" style="text-decoration: none;">Contact us</a>
+                </p>
+    
+            </div>
+            <div class="col mt-3"  style="color:#808080;">
+              <h5 class="text-uppercase mb-4 font-weight-bold md-sz">Let us help you</h5>
+              <p>
+                <a href="./payment.html" class="text-white" style="text-decoration: none;">Payments</a>
+              </p>
+                <p>
+                  <a href="./paypolicy.html" class="text-white" style="text-decoration: none;">Payment Policy</a>
+                </p>
+                
+                <p>
+                  <a href="canellation.html" class="text-white" style="text-decoration: none;">Cancellation and Returns</a>
+                </p>
+                
+                
+            </div>
+            <div class="col mt-3" style="color:#808080;">
+              <h5 class="text-uppercase mb-4 font-weight-bold md-sz">Policy</h5>
+               
+               
+                <p>
+                  <a href="./privacy.html" class="text-white" style="text-decoration: none;">Privacy</a>
+                </p>
+            </div>
+            
+            <div class="col mt-3" style="color:#808080;">
+              <div>
+                <h5 class="text-uppercase mb-4 font-weight-bold md-sz">Connect with us</h5>
+                <p>
+                  <a href="https://www.facebook.com" class="text-white" style="text-decoration: none;">
+                    <i class="fab fa-facebook-square"></i>
+                    Facebook
+                  </a>
+                </p>
+                <p>
+                  <a href="https://twitter.com" class="text-white" style="text-decoration: none;">
+                    <i class="fab fa-twitter-square"></i>
+                    Twitter
+                  </a>
+                </p>
+                <p>
+                  <a href="https://instagram.com" class="text-white" style="text-decoration: none;">
+                    <i class="fab fa-instagram-square"></i>
+                    Instagram
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+          <div class="row align-items-center">
+            <div class="text-center">
+                Content owned and updated by <span class="heart">&#10084;
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+    <script>
+        document.getElementById("email").value = localStorage.getItem("studentEmail");
+
+        // Update the profile picture display
+        function updateProfilePicture(data) {
+            const profilePictureElement = document.getElementById("profilePictureElement");
+
+            if (data && data.profilePicture && data.profilePicture.length > 0) {
+                profilePictureElement.src = 'data:image/jpeg;base64,' + data.profilePicture;
+            } else {
+                console.error('Error: Invalid or missing profile picture data.');
+                profilePictureElement.style.display = "none"; // Hide the image element
+            }
+        }
+
+        // Fetch user details from the server and populate the form fields
+        fetch('https://homepro-backend.onrender.com/fetchUserDetails', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: localStorage.getItem("studentEmail") }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Fetched user details:', data);
+            document.getElementById("name").value = data.name;
+            document.getElementById("gender").value = data.gender;
+            document.getElementById("mobile").value = data.mobile;
+
+            // Update the profile picture display
+            updateProfilePicture(data);
+        })
+        .catch(error => {
+            console.error('Error fetching user details:', error);
+            // Handle the error as needed
+        });
+
+        // Function to convert array buffer to base64
+        function arrayBufferToBase64(buffer) {
+            var binary = '';
+            var bytes = new Uint8Array(buffer);
+            var len = bytes.byteLength;
+            for (var i = 0; i < len; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return btoa(binary);
+        }
+    </script>
+    <script src="./static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+</body>
+</html>

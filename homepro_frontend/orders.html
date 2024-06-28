@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Orders</title>
+    <meta charset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./static/style.css">
+    <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/60fedd8558.js" crossorigin="anonymous"></script>
+    
+    <script src="https://kit.fontawesome.com/60fedd8558.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <title>Homepro Connect</title>
+    <link rel="stylesheet" href="./static/home.css">
+    <style>
+          footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: #2980b9;">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="./home.html">
+              <img src="Images\Logo\ApniDukan.png" alt="logo" width="45" height="35" class="d-inline-block align-text-top mr-2 navbar-logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-capitalize">
+                  <ul class="navbar-nav mr-auto mb-2 mb-lg-0 text-capitalize">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                      </li>
+                      <li class="nav-item text-capitalize">
+                          <a class="nav-link" href="cart.html">My Cart</a>
+                      </li>
+                      <li class="nav-item text-capitalize">
+                          <a class="nav-link" href="orders.html">Your order</a>
+                      </li>
+                      <li class="nav-item text-capitalize">
+                        <a class="nav-link" href="./contactus.html">Contact us</a>
+                    </li>
+                  </ul>
+                  
+          </div>
+      </div>
+  </nav>
+  <h1>Orders</h1>
+  <div id="ordersList" class="animated"></div>
+  
+  <script>
+        // Function to fetch orders as soon as the page loads
+        function fetchOrders() {
+            // Fetch user email from local storage
+            const userEmail = localStorage.getItem("studentEmail");
+    
+            console.log('Fetching orders for user:', userEmail);
+    
+            if (!userEmail) {
+                console.error('Error: User email is missing.');
+                // Handle the error as needed, e.g., show an error message to the user
+            } else {
+                // Fetch orders for the user using their email
+                console.log('Fetching orders...');
+                fetch(`https://homepro-backend-1-jee6.onrender.com/getUserOrders?userEmail=${userEmail}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Network response was not ok: ${response.statusText}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Orders fetched successfully:', data);
+                        // Process and display the orders or no orders message
+                        displayOrders(data);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching orders:', error);
+                        document.getElementById('ordersList').innerHTML = 'Error fetching orders.';
+                    });
+                }
+        }
+        
+        function displayOrders(orders) {
+    const ordersListDiv = document.getElementById('ordersList');
+
+    if (orders.length === 0) {
+        const noOrdersMessage = document.createElement('p');
+        noOrdersMessage.innerHTML = 'You have not placed any order yet.';
+        noOrdersMessage.className = 'error-message';
+        ordersListDiv.appendChild(noOrdersMessage);
+    } else {
+        const ordersHtml = orders.map(order => `
+            <div class="order-item">
+                <p>Service Type: ${order.serviceType}</p>
+                <p>Amount: ${order.amount}</p>
+                <p>Service Date: ${new Date(order.serviceDate).toLocaleString()}</p>
+                <p>Status: ${order.orderStatus}</p> 
+                <p><a href="#" onclick="cancelOrder('${order.serviceType}', ${order.amount}, '${order.serviceDate}')">Cancel Order</a></p>
+                <hr>
+            </div>
+        `).join('');
+
+        ordersListDiv.innerHTML = ordersHtml;
+    }
+}
+function cancelOrder(serviceType, amount, serviceDate) {
+    const confirmCancel = confirm('Are you sure you want to cancel this order?');
+    const cancelMessageDiv = document.getElementById('cancelMessage');
+    
+    if (confirmCancel) {
+        // Fetch user email from local storage
+        const userEmail = localStorage.getItem("studentEmail");
+        
+        // Send a POST request to the server to cancel the order
+        fetch('https://homepro-backend-1-jee6.onrender.com/cancelOrder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userEmail,
+                serviceType,
+                amount,
+                serviceDate,
+            }),
+        })
+        .then(response => response.json())
+            .then(data => {
+                console.log('Order canceled successfully:', data);
+                // Display the cancellation message
+                cancelMessageDiv.innerHTML = 'Order canceled successfully!';
+                // Refresh the orders after cancellation
+                fetchOrders();
+                
+                // Clear the message after a few seconds
+                setTimeout(() => {
+                    cancelMessageDiv.innerHTML = '';
+                }, 5000);
+            })
+            .catch(error => {
+                console.error('Error canceling order:', error);
+                // Handle the error as needed
+            });
+    }
+}
+        // Invoke the function to fetch orders when the page loads
+        fetchOrders();
+    </script>
+    <script src="./static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <footer class="footer">
+        <div class="container">
+            Content owned and updated by <span class="heart">&#10084;</span>
+        </div>
+    </footer>
+</body>
+    </html>
+    

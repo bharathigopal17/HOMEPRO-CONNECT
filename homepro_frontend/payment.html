@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+  
+      .navbar {
+        background-color: #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        color: #fff;
+      }
+  
+      .navbar-brand img {
+        max-width: 150px;
+      }
+  
+      .navbar-menu {
+        display: flex;
+        align-items: center;
+      }
+  
+      .navbar-menu a {
+        text-decoration: none;
+        color: #fff;
+        margin: 0 15px;
+        font-size: 16px;
+      }
+  
+      .cart-logo {
+        background-color: #f00;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+  
+      .box-sz {
+        padding: 20px 30px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+  
+      h3 {
+        font-weight: 450!important;
+        padding: 0px!important;
+      }
+  
+      .row {
+        margin: 20px 20px;
+      }
+  
+      .col-md-7 {
+        margin-right: 20px;
+        margin-left: 35px;
+        width: 58% !important;
+      }
+  
+      .col-md-6 {
+        width: 50%;
+      }
+  
+      .mid1-sz {
+        font-weight: 450!important;
+        padding: 0px!important;
+      }
+  
+      .cards-users p {
+        font-size: 17px!important;
+        font-weight: 500!important;
+        margin-top: 15px;
+        border-bottom: 1px solid #E2E5DE;
+        padding-bottom: 17px;
+      }
+  
+      .cvv span {
+        font-size: 14px!important;
+        margin-left: 5px;
+        font-weight: 500!important;
+      }
+  
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+  
+      .btn-sm {
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #f0ad4e;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .btn-sm:hover {
+        background-color: #ec971f;
+      }
+  
+      select {
+        margin-top: 15px;
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+  
+      .bg-dark {
+        background-color: #343a40;
+      }
+  
+      .text-white {
+        color: #fff;
+      }
+  
+      .pt-5 {
+        padding-top: 3rem;
+      }
+  
+      .pb-4 {
+        padding-bottom: 1.5rem;
+      }
+  
+      .text-md-left {
+        text-align: left;
+      }
+  
+      .d-flex {
+        display: flex;
+      }
+  
+      .justify-content-between {
+        justify-content: space-between;
+      }
+  
+      .font-weight-bold {
+        font-weight: bold;
+      }
+  
+      .md-sz {
+        font-size: 18px;
+      }
+    </style>
+  </head>  
+<body>
+  <section>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Z-RZNKIWoczHagBvwI99v66DIEf4Nr4sUA&usqp=CAU" alt="logo">
+      </div>
+      <div class="navbar-menu">
+        <li class="nav-item text-capitalize">
+          <a class="nav-link" href="./home.html">HOME</a>
+      </li>
+        <li class="nav-item text-capitalize">
+          <a class="nav-link" href="./about.html">About us</a>
+      </li>
+     
+      <li class="nav-item text-capitalize">
+          <a class="nav-link" href="./contactus.html">Contact us</a>
+      </li>
+      <li class="nav-item text-capitalize">
+          <a class="nav-link" href="cart.html">My Cart</a>
+      </li> 
+        
+            </div>
+        </nav>
+    </section>
+     <section>
+      <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+        <div style="width: 90%;" class="col-md-6">
+      <div style="margin:20px 20px;" class="row">
+        <div style="padding:20px 30px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-right: 20px;margin-left: 35px;width: 58% !important;" class="col-md-7 box-sz">
+          <h3 class="mid1-sz" style="font-weight: 450!important;padding: 0px!important">Select a Payment Method</h3>
+          <div style="border:1px solid #E2E5DE;padding:10px 20px;margin-top: 15px">
+            <div style="border-bottom:1px solid #E2E5DE " class="row">
+              <div class="col-md-6">
+                
+                
+              </div>
+              <div class="col-md-3">
+               
+              </div>
+            </div>
+            <div class="cards-users">
+            </div>
+            <p style="font-size: 17px!important;font-weight: 500!important;margin-top: 15px;border-bottom:1px solid #E2E5DE;padding-bottom: 17px ">Cards</p>
+            <div class="form-check">
+              <input id="card" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label style="font-size:14px!important" class="form-check-label" for="flexRadioDefault1">
+                <span style="font-weight: 500!important">Add Debit/Credit/ATM Card</span><br><img style="height:23px;margin-left: 5px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9iNeNkmGtlWayKcDPlTb4Eh36WMw7VNh-Vg&usqp=CAU"><img style="height:23px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJCaZ6drMDEdyevapF16YYOTfSP98NigdAwA&usqp=CAU"><img style="height:23px;" src=>
+              </label>
+              <div style="margin-top: 20px;margin-bottom: 15px" class="cvv">
+                <span style="font-size:14px!important;margin-left: 5px;font-weight: 500!important">Card Number : </span>
+                <input id="card-number" style="width: 305px" type="text" required>
+                <br>
+                <div style="margin-top: 15px">
+                  <span style="font-size:14px!important;margin-left: 5px;font-weight: 500!important;">Name on Card : </span>
+                  <input id="card-name" style="width: 150px" type="text" required>
+                  <span style="font-size:14px!important;margin-left: 20px;font-weight: 500!important;">Expires : </span>
+                  <input id="card-expiry" style="width: 70px" type="text" required>
+                </div>
+                
+                <button id="card-submit" type="button" class="btn btn-sm btn-warning">Add Card</button>
+                <br>
+              </div>
+            </div>
+            <!-- <div style="margin-top: 24px" class="form-check">
+              <input id="upi" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label style="font-size:14px!important" class="form-check-label" for="flexRadioDefault1">
+                <span style="font-weight: 500!important">UPI</span><br><img style="height:23px;margin-left: 5px" src="">
+              </label>
+              <div style="margin-top: 20px!important" class="cvv">
+                <span style="font-size:14px!important;margin-left: 5px;font-weight: 500!important">Enter UPI Id : </span>
+                <input style="width: 180px" type="text" placeholder="MobileNumber@upi" required>
+                <br>
+                <button type="button" class="btn btn-sm btn-warning">Verify</button>
+                <br>
+              </div> -->
+            </div>
+            <div style="margin-top: 24px" class="form-check">
+              <input id="net" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Net Banking
+                <br>
+                <select style="margin-top: 15px" class="form-select" aria-label="Disabled select example">
+                  <option selected>Choose a Bank</option>
+                  <option value="1">HDFC Bank</option>
+                  <option value="2">Bank Of Baroda</option>
+                  <option value="3">Axis Bank</option>
+                  <option value="4">ICICI Bank</option>
+                  <option value="5">Kotak Bank</option>
+                </select>
+              </label>
+            </div>
+            <!-- <div style="margin-top: 24px" class="form-check">
+              <input id="emi" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                EMI
+              </label>
+            </div> -->
+            <div style="margin-top: 24px" class="form-check">
+              <input id="cod" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Cash on Delivery
+              </label>
+            </div>
+          </div>  
+        </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+          <div style="width: 160%; margin-right: 20%;" class="col-md-6">
+            <div class="box-sz" style="padding: 20px 30px; box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.24);">
+              <h3 class="mid1-sz" style="font-weight: 450!important; padding: 0;">Total Amount</h3>
+              <div class="box1-sz" style="margin-top: 15px; padding: 15px 0; border-top: 1.5px solid #E2E5DE">
+                <p class="mid3-sz" style="color: #058552">
+                  <i class="fa fa-check-circle" aria-hidden="true"></i> Your order is eligible for FREE Delivery.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                  <h5 class="mid2-sz" style="font-weight: 500!important; margin: 0;">Item Total: </h5>
+                  <h5 class="mid2-sz" style="font-weight: 400!important; margin: 0;">
+                    <i class="fa fa-inr" aria-hidden="true"></i>
+                    <span id="total">2000</span>
+                  </h5>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                  <h5 class="mid2-sz" style="font-weight: 500!important; margin: 0;">Taxes & Charges: </h5>
+                  <h5 class="mid2-sz" style="font-weight: 400!important; margin: 0;">
+                    <i class="fa fa-inr" aria-hidden="true"></i>
+                    <span>100</span>
+                  </h5>
+                </div>
+                <div class="box1-sz" style="margin-top: 15px; padding: 15px 0; border-top: 1.5px solid #E2E5DE">
+                  <h5 class="mid2-sz" style="font-weight: 500!important; margin: 0;">To Pay: </h5>
+                  <h5 class="mid2-sz" style="font-weight: 400!important; margin: 0;">
+                    <i class="fa fa-inr" aria-hidden="true"></i>
+                    <span id="totaltopay">2100</span>
+                  </h5>
+                </div>
+                <!-- <button id="bookNowButton">Book Now</button> -->
+                <div style="display: flex; justify-content: center; margin-top: 20px;">
+                  <a class="btn btn-success"id="bookNowButton" href="end.html" role="button" style="padding: 10px 40px; text-decoration: none; color: white; border-radius: 5px; background-color: #28a745; border-color: #28a745;">
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <h5 class="mid2-sz" style="font-weight: 500!important;margin:0!important;color:grey;margin-top: 25px!important;margin-left:20px!important"><i style="margin-right: 7px" class="fa fa-shield" aria-hidden="true"></i> Safe and Secure Payments. Easy returns. 100%  Authentic products.</h5>
+        </div>
+        </div>
+        </section>
+        <footer class="bg-dark text-white pt-5 pb-4" style="font-size: 18px;">
+          <div class="container text-md-left">
+            <div class="row text-md-left">
+              <div class="col mt-3" style="color:#808080;">
+                <h5 class="text-uppercase mb-4 font-weight-bold md-sz">Get to know us</h5>
+                <p>
+                  <a href="./about.html" class="text-white" style="text-decoration: none;">About us</a>
+                </p>
+                <p>
+                    <a href="./contactus.html" class="text-white" style="text-decoration: none;">Contact us</a>
+                  </p>
+    
+              </div>
+              <div class="col mt-3"  style="color:#808080;">
+                <h5 class="text-uppercase mb-4 font-weight-bold md-sz">Let us help you</h5>
+                  <p>
+                    <a href="./paypolicy.html" class="text-white" style="text-decoration: none;">Payments</a>
+                  </p>
+                  
+                  <p>
+                    <a href="canellation.html" class="text-white" style="text-decoration: none;">Cancellation and Returns</a>
+                  </p>
+                  
+                  
+              </div>
+              <div class="col mt-3" style="color:#808080;">
+                <h5 class="text-uppercase mb-4 font-weight-bold md-sz">Policy</h5>
+                 
+                 
+                  <p>
+                    <a href="./privacy.html" class="text-white" style="text-decoration: none;">Privacy</a>
+                  </p>
+              </div>
+              
+              <div class="col mt-3" style="color:#808080;">
+                <div>
+                  <h5 class="text-uppercase mb-4 font-weight-bold md-sz">Connect with us</h5>
+                  <p>
+                    <a href="https://www.facebook.com" class="text-white" style="text-decoration: none;">
+                      <i class="fab fa-facebook-square"></i>
+                      Facebook
+                    </a>
+                  </p>
+                  <p>
+                    <a href="https://twitter.com" class="text-white" style="text-decoration: none;">
+                      <i class="fab fa-twitter-square"></i>
+                      Twitter
+                    </a>
+                  </p>
+                  <p>
+                    <a href="https://instagram.com" class="text-white" style="text-decoration: none;">
+                      <i class="fab fa-instagram-square"></i>
+                      Instagram
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <div class="row align-items-center">
+              <div class="text-center" style="text-align: center;">
+              Content owned and updated by <span class="heart">&#10084;
+              </div>
+            </div>
+          </div>
+        </footer>
+ 
+<script>
+  // Retrieve total amount from the URL parameter
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const totalAmount = urlParams.get('amount');
+
+  // Display the total amount and update the 'Item Total' and 'To Pay' values
+  const totalElement = document.getElementById('total');
+  const totalToPayElement = document.getElementById('totaltopay');
+  const taxes = 100; // Example taxes value, you can modify this according to your requirements
+
+  totalElement.textContent = totalAmount;
+  totalToPayElement.textContent = parseFloat(totalAmount) + taxes;
+</script>
+
+<script>
+  // Function to fetch cart details from cart.html
+  function getCartDetails() {
+      const cartDetails = JSON.parse(localStorage.getItem("cart")) || [];
+      return cartDetails;
+  }
+
+  function storeServiceDetails() {
+      const cartDetails = getCartDetails();
+      const userEmail = localStorage.getItem("studentEmail");
+
+      if (cartDetails.length === 0 || !userEmail) {
+          console.error('Error: Cart is empty or user email is missing.');
+          return;
+      }
+
+      // Iterate over each item in the cart and send a separate request for each
+      cartDetails.forEach((item, index) => {
+          const serviceType = item.serviceName;
+          const amount = item.price;
+          const serviceDate = new Date();
+          const status = 'Pending';
+
+          // Log statements to track the flow
+          console.log(`Processing item ${index + 1}:`, { serviceType, amount, serviceDate, status });
+
+          // Send a POST request to the server using fetch
+          fetch('https://homepro-backend-1-jee6.onrender.com/storeServiceDetails', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                  userEmail,
+                  serviceType,
+                  amount,
+                  serviceDate,
+                  status,
+              }),
+          })
+          .then(response => response.json())
+          .then(data => {
+              console.log(`Service details for item ${index + 1} stored:`, data);
+              if (index === cartDetails.length - 1) {
+                  console.log('All items processed successfully. Redirecting to success.html.');
+                  window.location.href = 'success.html';
+              }
+          })
+          .catch(error => {
+              console.error(`Error storing service details for item ${index + 1}:`, error);
+          });
+      });
+  }
+
+  // Event listener for the "Book Now" button
+  document.getElementById('bookNowButton').addEventListener('click', function() {
+      console.log('Book Now button clicked. Initiating service details storage.');
+      storeServiceDetails();
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('https://png.pngtree.com/background/20210710/original/pngtree-peaceful-spring-festival-going-home-for-the-new-year-welcome-home-picture-image_972387.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+
+form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+input:read-only {
+    background-color: #f9f9f9;
+}
+
+/* New CSS for more appealing styles */
+
+body {
+    background-color: #f7f7f7;
+}
+
+form {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 15px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+input[type="submit"]:hover {
+    background-color: #e35d4f;
+}
+
+label {
+    font-size: 18px;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #333;
+    font-size: 24px;
+    z-index: 1;
+}
+
+form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 150px auto 0;
+    position: relative;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #4d90fe;
+}
+
+option {
+    font-size: 16px;
+}
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon input[type="text"] {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.inputWithIcon .updateOption {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    color: #4CAF50;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.inputWithIcon .updateOption:hover {
+    text-decoration: underline;
+}
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+
+        nav img {
+            height: 60px; /* Increased the logo size */
+            width: 60px;
+            margin-right: 20px;
+            transition: transform 0.3s;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav li {
+            margin-right: 20px;
+            transition: transform 0.3s;
+        }
+
+        nav li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav li a.active {
+            background-color: #4CAF50;
+            border-radius: 5px;
+            padding: 8px 15px;
+            transition: background-color 0.3s;
+        }
+
+        nav:hover {
+            top: 0;
+        }
+
+        nav:hover img {
+            transform: rotate(360deg);
+        }
+
+        nav li:hover {
+            transform: scale(1.1);
+        }
+
+        nav li a:hover {
+            color: #4CAF50;
+        }
+
+        body {
+            margin-top: 70px; /* Adjust this value according to your navbar height */
+        }
+
+</style>
+</head>
+    <body>
+        <nav>
+            <img src="Images\Logo\ApniDukan.png" alt="Logo"> <!-- Replace with your logo path -->
+            <ul>
+
+                <li style="margin-left: auto;"><a class="active" href="#welcome">Welcome, User!</a></li>
+            </ul>
+        </nav>
+       
+        <h2><br>User Account Details</h2>
+        <form id="accountForm" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required readonly><br><br>
+    
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select the gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="not_specified">Not to Say</option>
+            </select><br><br>
+    
+            <label for="mobile">Mobile Number:</label>
+            <div class="inputWithIcon">
+                <input type="text" id="mobile" name="mobile" required>
+                <span class="updateOption" onclick="updateMobile()">Update</span>
+            </div>
+            <br><br>
+    
+            <label for="profilePicture">Profile Picture:</label>
+            <input type="file" id="profilePicture" name="profilePicture"><br><br>
+    
+            <input type="submit" value="Save Details">
+        </form>
+    
+        <script>
+            document.getElementById("email").value = localStorage.getItem("studentEmail");
+    
+            document.getElementById("accountForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const gender = document.getElementById("gender").value;
+                const mobile = document.getElementById("mobile").value;
+                const profilePicture = document.getElementById("profilePicture").files[0];
+    
+                const formData = new FormData();
+                formData.append('name', name);
+                formData.append('email', email);
+                formData.append('gender', gender);
+                formData.append('mobile', mobile);
+                formData.append('profilePicture', profilePicture);
+    
+                fetch('https://homepro-backend.onrender.com/storeUserDetails', {
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('User details stored in the database:', data);
+                        alert('User stored successfully.');
+                        // Redirect to the appropriate page
+                        window.location.href = 'home.html';
+                    })
+                    .catch(error => {
+                        console.error('Error storing user details in the database:', error);
+                        // Handle the error as needed
+                    });
+            });
+    
+        fetch('https://homepro-backend.onrender.com/checkUserDetails', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: localStorage.getItem("studentEmail") }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.exists) {
+                    window.location.href = 'home.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error checking user details:', error);
+                // Handle the error as needed
+            });
+
+    </script>
+</body>
+</html>
